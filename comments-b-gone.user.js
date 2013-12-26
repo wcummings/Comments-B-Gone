@@ -16,7 +16,8 @@
 	    
         // no one cares about your startup
         if(d.location.href.match(/^https:\/\/news.ycombinator.com/))
-            filter.call(d.getElementsByTagName('a'), function(a) { return a.innerHTML.match(/\d+ comments/) }).forEach(function(a) { a.parentNode.removeChild(a) });
+            filter.call(d.getElementsByTagName('a'), function(a) { return a.innerHTML.match(/^\d+ comment/) }).forEach(function(a) { a.parentNode.removeChild(a) });
+            filter.call(d.getElementsByTagName('a'), function(a) { return a.innerHTML == "discuss") }).forEach(function(a) { a.parentNode.removeChild(a) });
 	    
         if(d.location.href.match(/^http:\/\/www.reddit.com/)) {
             filter.call(d.getElementsByTagName('a'), function(a) { return a.className == "comments" }).forEach(function(a) { a.parentNode.removeChild(a) });
